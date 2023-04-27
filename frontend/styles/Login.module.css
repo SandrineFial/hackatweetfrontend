@@ -1,0 +1,12 @@
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fondimg {
+    background: center no-repeat url('/fond.png');
+    width: 50vw;
+}
+.blockLogin {
+    padding: 10px;
+}
