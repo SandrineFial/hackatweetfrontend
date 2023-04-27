@@ -8,8 +8,8 @@ function SignIn() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSignIn = () => {
+    
 
     fetch('https://hackatweet-backend-ac9g.vercel.app/users/signin', {
       method: 'POST',
@@ -18,11 +18,15 @@ function SignIn() {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log('Data from server:', data); 
         if (data.result) {
           dispatch(login({ username, token: data.token }));
-          setUsername('');
-          setPassword('');
+        } else {
+          console.log('Error:', data.error); 
         }
+      })
+      .catch((error) => {
+        console.log('Fetch error:', error); 
       });
   };
 
@@ -30,7 +34,12 @@ function SignIn() {
     <div className={styles.blockCenter}>
       <img src="./logo.png" alt="logo" width="50px" className="logo" />
       <h2 className="white">Connect to Hackatweet</h2>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSignIn();
+        }}
+      >
         <input
           type="text"
           placeholder="Username"
@@ -45,7 +54,7 @@ function SignIn() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <input type="submit" value="Sign in" className={styles.btn} />
+        <input type="submit" value="Sign in" className={styles.btn}/>
       </form>
     </div>
   );
