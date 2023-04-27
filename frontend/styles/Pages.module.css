@@ -10,17 +10,23 @@
 .logoLeft {
     padding:25px;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
 }
 .borderLeft {
     border-left: 1px solid #333;
     height: 100vh;
 }
+.addTweet {
+    padding: 10px 40px;
+}
 .inputTweet {
     background-color: transparent;
     border: none;
     width: 100%;
-    border-bottom: 1px solid #333;
-    margin: 10px 40px;
+    border-bottom: 1px solid #999;
     padding: 10px 0px;
     font-family: Verdana;
     font-size: 15px;
@@ -28,6 +34,7 @@
 .titreNoBold {
     font-family:Verdana;
     font-weight: 100;
+    margin-left: 10px;
 }
 .totCaracteres {
     font-family:Verdana;
@@ -37,11 +44,24 @@
 .alignRight {
     text-align: right;
 }
-
 .btnTweet {
     border: none;
     border-radius: 20px;
     background-color: dodgerblue;
     color: white;
     padding: 5px 20px;
-  }
+}
+.searchHashtag {
+    margin: 10px 40px 20px 40px;
+}
+.searchHashtag input {
+    color: white;
+    background-color: #202c41;
+    padding: 10px;
+    width: 100%;
+    border-radius: 20px;
+    border: none;
+}
+.searchHashtag input:focus { 
+    border: 1px solid #202c41;
+}

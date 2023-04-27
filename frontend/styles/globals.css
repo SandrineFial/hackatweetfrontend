@@ -57,3 +57,12 @@ h1 {
 button, input, a {
   cursor: pointer;
 }
+.eggs {
+    background-color:steelblue;
+    border-radius: 50%;
+    padding: 7px;
+    vertical-align: middle;
+}
+.grisTweetName {
+  color: #888;
+}
