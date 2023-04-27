@@ -1,17 +1,17 @@
-import styles from '../styles/Hashtag.module.css';
+import styles from '../styles/Pages.module.css';
 import Trends from './Trends';
 import Link from 'next/link';
 function Hashtag() {
   return (
     <div className="container">
-      <div>
-        <img src="./logo.png" alt = "logo" width="50px" className='logo'/>
+      <div className={styles.logoLeft}>
+        <Link href="/"><img src="./logo.png" alt = "logo" width="50px" className='logo'/></Link>
       </div>
-      <div>
-        <h2>Hashtag</h2>
+      <div className={styles.borderLeft}>
+        <h2 className={styles.titreNoBold}>Hashtag</h2>
       </div>
-      <div>
-        <h2>Trends</h2>
+      <div className={styles.borderLeft}>
+        <h2 className={styles.titreNoBold}>Trends</h2>
         <Trends/>
       </div>
     </div>
