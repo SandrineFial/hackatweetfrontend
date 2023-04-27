@@ -7,11 +7,11 @@
 .nameTweet {
     font-family: Mont Heavy;
 }
-.grisTweet {
-    color: #888;
-}
 .iconPointor {
     cursor: pointer;
+}
+.iconPointor:hover {
+    color: dodgerblue;
 }
 .textTweet {
     padding: 10px 0;
@@ -20,9 +20,6 @@
     color: dodgerblue;
     text-decoration: none;
 }
-.eggs {
-    background-color:steelblue;
-    border-radius: 50%;
-    padding: 7px;
-    vertical-align: middle;
+.textTweet a:hover {
+    color: white;
 }
