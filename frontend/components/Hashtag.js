@@ -10,8 +10,13 @@ function Hashtag() {
     <div className={styles.container}>
       <div className={styles.logoLeft}>
         <div><Link href="/"><img src="./logo.png" alt = "logo" width="50px" className='logo'/></Link></div>
-        <div><FontAwesomeIcon icon={faEgg} className='eggs' size="2x"/> <span className={styles.nameTweet}>John</span><br/>
-          <span className='grisTweetName'>@JohnCenna</span></div>
+        <div className='userInfos'>
+          <FontAwesomeIcon icon={faEgg} className='eggs' size="2x"/> 
+          <div>
+            <span className={styles.nameTweet}>John</span><br/>
+            <span className='grisUserName'>@JohnCenna</span>
+          </div>
+        </div>
       </div>
       <div className={styles.borderLeft}>
         <h2 className={styles.titreNoBold}>Hashtag</h2>

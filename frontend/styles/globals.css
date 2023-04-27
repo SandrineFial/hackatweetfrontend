@@ -63,6 +63,16 @@ button, input, a {
     padding: 7px;
     vertical-align: middle;
 }
-.grisTweetName {
+.grisUserName {
   color: #888;
+  font-family: Verdana;
+  font-size: 12px;
+}
+.userInfos {
+  font-size: 14px;
+  display: flex;
+  flex-grow: 0!important;
+}
+.userInfos .eggs {
+  margin-right:10px
 }

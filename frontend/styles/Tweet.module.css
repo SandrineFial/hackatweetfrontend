@@ -10,6 +10,9 @@
 .iconPointor {
     cursor: pointer;
 }
+.iconPointor:hover {
+    color: dodgerblue;
+}
 .textTweet {
     padding: 10px 0;
 }
