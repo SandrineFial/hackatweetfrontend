@@ -2,12 +2,24 @@ import styles from '../styles/Pages.module.css';
 import Trends from './Trends';
 import Tweet from './Tweet';
 import Link from 'next/link';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+import { useSelector } from 'react-redux';
+import Login from './Login';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEgg } from '@fortawesome/free-solid-svg-icons'
 // si connecté affiche la home
 // sinon la page de connexion
 function Home() {
+  const user = useSelector((state) => state.user.value);
+
+
+  if (!user.token) {
+    return <Login />;
+  }
+
+
   return (
     <div className={styles.container}>
       <div className={styles.logoLeft}>
