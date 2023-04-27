@@ -1,4 +1,7 @@
 import styles from '../styles/Login.module.css';
+import SignUp from './SignUp';
+import SignIn from './SignIn';
+
 function Login() {
   return (
     <div className={styles.flex}>
@@ -10,9 +13,11 @@ function Login() {
         <h1 className="white">See what's happening</h1>
         <h2 className="white">Join Hackatweet today.</h2>
         <button className="btnblue">Sign Up</button>
-        <p className="white">Already have an account?</p>
+        <p className="white txtpetit">Already have an account?</p>
         <button className="btnblack">Sign In</button>
       </div>
+      <SignIn/>
+      <SignUp/>
     </div>
   );
 }

@@ -16,6 +16,7 @@ body {
   background-color: rgb(15 23 42);
   width: 100vw;
   font-family: Mont Heavy, Verdana;
+  color: white;
 }
 
 * {
@@ -25,20 +26,34 @@ body {
 .white {
   color:white;
 }
+.btnblack,
+.btnblue {
+  padding: 5px 50px;
+  font-size: 12px;
+  font-family: Mont Heavy, Verdana;
+}
+
 .btnblue {
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   background-color: dodgerblue;
   color: white;
-  padding: 5px 30px;
 }
 .btnblack {
-  border: 1px solid white;
-  border-radius: 10px;
+  border: 1px solid #bbb;
+  border-radius: 20px;
   background-color: rgb(15 23 42);
   color: dodgerblue;
-  padding: 5px 30px;
 }
 .logo {
   transform: rotate(180deg);
+}
+.txtpetit {
+  font-size: 10px;
+}
+h1 {
+  font-size: 40px;
+}
+.container {
+  display:flex;
 }
