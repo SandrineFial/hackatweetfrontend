@@ -12,7 +12,7 @@ function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch('http://hackatweet-backend-ac9g.vercel.app/users/signup', {
+    fetch('https://hackatweet-backend-ac9g.vercel.app/users/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, email, password }),
@@ -20,10 +20,25 @@ function SignUp() {
       .then((response) => response.json())
       .then((data) => {
         if (data.result) {
+          handleSignIn(username, password);
           dispatch(login({ username, token: data.token }));
           setUsername('');
           setEmail('');
           setPassword('');
+        }
+      });
+  };
+
+  const handleSignIn = (username, password) => {
+    fetch('https://hackatweet-backend-ac9g.vercel.app/users/signin', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.result) {
+          dispatch(login({ username, token: data.token }));
         }
       });
   };
