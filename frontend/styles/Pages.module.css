@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+}
+.container div {
+    flex-grow: 1;
+}
+.logoLeft {
+    padding:25px;
+    height: 100vh;
+}
+.borderLeft {
+    border-left: 1px solid #333;
+    height: 100vh;
+}
+.inputTweet {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    border-bottom: 1px solid #333;
+    margin: 10px 40px;
+    padding: 10px 0px;
+    font-family: Verdana;
+    font-size: 15px;
+}
+.titreNoBold {
+    font-family:Verdana;
+    font-weight: 100;
+}
+.totCaracteres {
+    font-family:Verdana;
+    font-size: 12px; 
+    margin-right: 10px;
+}
+.alignRight {
+    text-align: right;
+}
+
+.btnTweet {
+    border: none;
+    border-radius: 20px;
+    background-color: dodgerblue;
+    color: white;
+    padding: 5px 20px;
+  }
