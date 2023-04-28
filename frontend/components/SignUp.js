@@ -30,12 +30,12 @@ function SignUp() {
   };
 
   const handleSignIn = (username, password) => {
-    //const BACK_END = "https://hackatweet-backend-ac9g.vercel.app"
-    const BACK_END = "http://localhost:3000"
+    const BACK_END = "https://hackatweet-backend-ac9g.vercel.app"
+    //const BACK_END = "http://localhost:3000"
     fetch(BACK_END+'/users/signin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ username, password}),
     })
       .then((response) => response.json())
       .then((data) => {

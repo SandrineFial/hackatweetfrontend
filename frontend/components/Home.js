@@ -13,8 +13,8 @@ import { faEgg } from '@fortawesome/free-solid-svg-icons'
 // si connecté affiche la home
 // sinon la page de connexion
 function Home() {
-  //const BACK_END = "https://hackatweet-backend-ac9g.vercel.app"
-  const BACK_END = "http://localhost:3000"
+  const BACK_END = "https://hackatweet-backend-ac9g.vercel.app"
+  //const BACK_END = "http://localhost:3000"
   const user = useSelector((state) => state.user.value);
   console.log('User in home', user)
   
@@ -40,21 +40,20 @@ function Home() {
   let trends = []
   let tweets = []
   useEffect(() => {
-    fetch(BACK_END+'/hashtags')
-    .then(response => response.json())  
-    .then(
-      data => {
-        if(data) {
+    fetch(BACK_END + '/hashtags')
+      .then((response) => response.json())
+      .then((data) => {
+        if (data) {
           console.log(data);
-          const listHash = data.hashtags
-          listHash.map( hash => {  
-            trends.push(<Trends name={hash} key = {hash._id}/>)
-          } )
-          setListeHashtag(trends)
-      }
-      }
-    ) 
+          const listHash = data.hashtags;
+          const trends = listHash.map((hash) => (
+            <Trends name={hash} key={hash} />
+          ));
+          setListeHashtag(trends);
+        }
+      });
   }, []);
+  
 
   useEffect(() => {
     fetch(BACK_END+'/tweets')
