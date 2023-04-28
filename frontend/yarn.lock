@@ -3732,6 +3732,11 @@ react-redux@^8.0.5:
     react-is "^18.0.0"
     use-sync-external-store "^1.0.0"
 
+react-textarea-emoji@^1.0.21:
+  version "1.0.21"
+  resolved "https://registry.yarnpkg.com/react-textarea-emoji/-/react-textarea-emoji-1.0.21.tgz#7a7390cb04e017c89801a04732249944b54e96be"
+  integrity sha512-h5Duiueh99+h3T5hTwFujulgVNb9nskNMEx9/vF1RUDMRdWFzGOFSi2jJee7ULPnaBDPtZIulsXukdtL9sBong==
+
 react@18.1.0:
   version "18.1.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.1.0.tgz#6f8620382decb17fdc5cc223a115e2adbf104890"
