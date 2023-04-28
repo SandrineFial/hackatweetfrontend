@@ -8,8 +8,8 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 function Hashtag() {
-  //const BACK_END = "https://hackatweet-backend-ac9g.vercel.app"
-  const BACK_END = "http://localhost:3000"
+  const BACK_END = "https://hackatweet-backend-ac9g.vercel.app"
+  //const BACK_END = "http://localhost:3000"
   const user = useSelector((state) => state.user.value);
   const [listeTweets, setListeTweets] = useState([]);
   const [listeHashtag, setListeHashtag] = useState([]);
