@@ -48,14 +48,14 @@ function SignIn() {
           className={styles.input}
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-        />
+        /><br/>
         <input
           type="password"
-          placeholder="Passeword"
+          placeholder="Password"
           className={styles.input}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        />
+        /><br/>
         <input type="submit" value="Sign in" className={styles.btn}/>
       </form>
     </div>

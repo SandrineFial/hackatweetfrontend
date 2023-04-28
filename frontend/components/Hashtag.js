@@ -76,7 +76,7 @@ function Hashtag() {
           <FontAwesomeIcon icon={faEgg} className='eggs' size="2x" onClick={handleClick}/> 
             {showPopup && (
             <div className={styles.popup}>
-              <button onClick={handleLogout}>Se déconnecter</button>
+            <button onClick={handleLogout}>Logout</button>
             </div>
           )}
           <div>

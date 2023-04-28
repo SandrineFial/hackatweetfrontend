@@ -29,19 +29,19 @@ function Login() {
       <div className={styles.fondimg}></div>
       <div className={styles.blockLogin}>
         <img src="./logo.png" alt="logo" width="50px" className="logo" />
-        <h1 className="white">Découvrez ce qui se passe</h1>
-        <h2 className="white">Rejoignez Hackatweet aujourd'hui.</h2>
+        <h1 className="white">See what's happening</h1>
+        <h2 className="white">Join Hackatweet today.</h2>
         <button className="btnblue" onClick={showSignUpModal}>
-          S'inscrire
+          Sign Up
         </button>
-        <p className="white txtpetit">Vous avez déjà un compte ?</p>
+        <p className="white txtpetit">Already have an account?</p>
         <button className="btnblack" onClick={showSignInModal}>
-          Se connecter
+          Sign In
         </button>
       </div>
 
-      <Modal
-        title="S'inscrire"
+      <Modal 
+        className="modalStyle"
         visible={isSignUpVisible}
         onCancel={handleSignUpCancel}
         footer={null}
@@ -49,8 +49,8 @@ function Login() {
         <SignUp />
       </Modal>
 
-      <Modal
-        title="Se connecter"
+      <Modal 
+        className="modalStyle"
         visible={isSignInVisible}
         onCancel={handleSignInCancel}
         footer={null}

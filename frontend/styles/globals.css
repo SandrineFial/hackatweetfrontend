@@ -57,6 +57,9 @@ h1 {
 button, input, a {
   cursor: pointer;
 }
+input[type=text], input[type=password] {
+  color: white;
+}
 .eggs {
     background-color:steelblue;
     border-radius: 50%;
@@ -75,4 +78,10 @@ button, input, a {
 }
 .userInfos .eggs {
   margin-right:10px
+}
+.modalStyle .ant-modal-content, .ant-modal-header, .ant-modal-body, .ant-modal-footer {
+  background-color: #161F2D!important;
+}
+.modalStyle .ant-modal-close-x {
+  color:white;
 }

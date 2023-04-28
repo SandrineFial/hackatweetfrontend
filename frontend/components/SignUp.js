@@ -48,30 +48,30 @@ function SignUp() {
   return (
     <div className={styles.blockCenter}>
       <img src="./logo.png" alt="logo" width="50px" className="logo" />
-      <h2 className="white">Créez votre compte Hackatweet</h2>
+      <h2 className="white">Create your Hackatweet account</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Prénom"
+          placeholder="Firstname"
           className={styles.input}
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-        />
+        /><br/>
         <input
           type="text"
-          placeholder="Adresse e-mail"
+          placeholder="Username"
           className={styles.input}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-        />
+        /><br/>
         <input
           type="password"
           placeholder="Mot de passe"
           className={styles.input}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        />
-        <input type="submit" value="S'inscrire" className={styles.btn} />
+        /><br/>
+        <input type="submit" value="Sign Up" className={styles.btn} />
       </form>
     </div>
   );
