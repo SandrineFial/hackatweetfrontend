@@ -20,7 +20,8 @@ function SignIn() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('Data from server:', data); 
+        console.log('Data from server:', data);
+        console.log('Token from server:', data.token)
         if (data.result) {
           dispatch(login({ username, email: data.email, token: data.token }));
         } else {
