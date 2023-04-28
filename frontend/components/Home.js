@@ -27,7 +27,7 @@ function Home() {
         <div className='userInfos'>
           <FontAwesomeIcon icon={faEgg} className='eggs' size="2x"/> 
           <div>
-            <span className={styles.nameTweet}>John</span><br/>
+            <span className={styles.nameTweet}>{user.username}</span><br/>
             <span className='grisUserName'>@JohnCenna</span>
           </div>
         </div>
