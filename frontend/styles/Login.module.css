@@ -2,11 +2,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 .fondimg {
     background: center no-repeat url('/fond.png');
+    background-size: cover;
+    height: 100vh;
     width: 50vw;
+    flex:1;
 }
 .blockLogin {
     padding: 10px;
+    flex:1;
 }

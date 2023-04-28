@@ -5,23 +5,54 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEgg } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 function Hashtag() {
+  //const BACK_END = "https://hackatweet-backend-ac9g.vercel.app"
+  const BACK_END = "http://localhost:3000"
+  const user = useSelector((state) => state.user.value);
+  const [listeTweets, setListeTweets] = useState([]);
+  const [listeHashtag, setListeHashtag] = useState([]);
+
+  if (!user.token) {
+    return <Login />; // retourner page accueil
+  }
+
   let trends = []
-  //useEffect()  
-  fetch('https://hackatweet-backend-ac9g.vercel.app/hashtags')
-  .then(response => response.json())  
-  .then(
-    data => {
-      if(data) {
-        console.log(data);
-        const listHash = data.hashtags
-        listHash.map( hash => {  
-          trends.push(<Trends name={hash}/>)
-        } )
-     }
-    }
-  ) 
+  let tweets = []
+  useEffect(() => {
+    fetch(BACK_END+'/hashtags')
+    .then(response => response.json())  
+    .then(
+      data => {
+        if(data) {
+          console.log(data);
+          const listHash = data.hashtags
+          listHash.map( hash => {  
+            trends.push(<Trends name={hash} key = {hash._id}/>)
+          } )
+          setListeHashtag(trends)
+      }
+      }
+    ) 
+  }, []);
+
+  useEffect(() => {
+    fetch(BACK_END+'/tweets')
+    .then(response => response.json())  
+    .then(
+      data => {
+        if(data) {
+          console.log(data);
+          const listTwt = data.tweets
+          listTwt.map( twt => {  
+            tweets.push(<Tweet content={twt.content} author={twt.author.username} email={twt.author.email} key = {twt._id} like={twt.likes.length}/>)
+          } )
+          setListeTweets(tweets)
+      }
+      }
+    ) 
+  }, []);
   
   return (
     <div className={styles.container}>
@@ -40,12 +71,11 @@ function Hashtag() {
         <div className={styles.searchHashtag}>
           <input value="#hashtag" type="text" />
         </div>
-        <Tweet/>
-        <Tweet/>
+        {listeTweets}
       </div>
       <div className={styles.borderLeft}>
         <h2 className={styles.titreNoBold}>Trends</h2>
-        {trends}
+        {listeHashtag}
       </div>
     </div>
   );
