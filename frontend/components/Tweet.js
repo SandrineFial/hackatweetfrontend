@@ -10,8 +10,8 @@ function Tweet(props) {
         <div><FontAwesomeIcon icon={faEgg} className='eggs' size="2x"/> <span className={styles.nameTweet}>{props.author}</span>
          <span className='grisTweetName'>@{props.email} . {time}</span></div>
         <div className={styles.textTweet}>{props.content}</div>
-        <div><FontAwesomeIcon icon={faHeart} className={styles.iconPointor}/> <span>{props.like}</span> 
-        <FontAwesomeIcon icon={faTrashCan} className={styles.iconPointor}/></div>
+        <div><FontAwesomeIcon icon={faHeart} className={styles.iconPointor}/> <span>{props.like} </span> 
+         <FontAwesomeIcon icon={faTrashCan} className={styles.iconPointor}/></div>
     </div>
   );
 }

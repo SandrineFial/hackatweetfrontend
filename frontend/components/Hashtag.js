@@ -87,7 +87,7 @@ function Hashtag({ hashtag }) {
           />
           {showPopup && (
             <div className={styles.popup}>
-              <button onClick={handleLogout}>Se déconnecter</button>
+            <button onClick={handleLogout}>Logout</button>
             </div>
           )}
           <div>

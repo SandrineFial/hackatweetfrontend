@@ -2,8 +2,6 @@ import styles from '../styles/Pages.module.css';
 import Trends from './Trends';
 import Tweet from './Tweet';
 import Link from 'next/link';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
 import Login from './Login';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -81,25 +79,29 @@ function Home() {
           <FontAwesomeIcon icon={faEgg} className='eggs' size="2x" onClick={handleClick}/> 
           {showPopup && (
           <div className={styles.popup}>
-            <button onClick={handleLogout}>Se déconnecter</button>
+            <button onClick={handleLogout}>Logout</button>
           </div>
         )}
+        <div>
+          <span className={styles.nameTweet}>{user.username}</span><br/>
+          <span className='grisUserName'>@{user.email}</span>
+        </div>
         </div>
       </div>
       <div className={styles.borderLeft}>
         <h2 className={styles.titreNoBold}>Home</h2>
         <div className={styles.addTweet}>
-          <textarea value="" placeholder="What's up?" className={styles.inputTweet}></textarea>
+          <textarea placeholder="What's up?" className={styles.inputTweet}></textarea>
           <p className={styles.alignRight}>
             <span className={styles.totCaracteres}>0/280</span>
             <button className={styles.btnTweet}>Tweet</button>
           </p>
         </div>
-        <Tweet/>
+        {listeTweets}
       </div>
       <div className={styles.borderLeft}>
         <h2 className={styles.titreNoBold}>Trends</h2>
-        <Trends/>
+        {listeHashtag}
       </div>
     </div>
   );
