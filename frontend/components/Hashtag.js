@@ -5,7 +5,9 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEgg } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../reducers/user';
+import Login from './Login';
 
 function Hashtag() {
   //const BACK_END = "https://hackatweet-backend-ac9g.vercel.app"
@@ -14,6 +16,18 @@ function Hashtag() {
   const [listeTweets, setListeTweets] = useState([]);
   const [listeHashtag, setListeHashtag] = useState([]);
 
+  const dispatch = useDispatch();
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleClick = () => {
+    setShowPopup(!showPopup);
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
+  console.log(user)
   if (!user.token) {
     return <Login />; // retourner page accueil
   }
@@ -59,10 +73,15 @@ function Hashtag() {
       <div className={styles.logoLeft}>
         <div><Link href="/"><img src="./logo.png" alt = "logo" width="50px" className='logo'/></Link></div>
         <div className='userInfos'>
-          <FontAwesomeIcon icon={faEgg} className='eggs' size="2x"/> 
+          <FontAwesomeIcon icon={faEgg} className='eggs' size="2x" onClick={handleClick}/> 
+            {showPopup && (
+            <div className={styles.popup}>
+              <button onClick={handleLogout}>Se déconnecter</button>
+            </div>
+          )}
           <div>
-            <span className={styles.nameTweet}>John</span><br/>
-            <span className='grisUserName'>@JohnCenna</span>
+            <span className={styles.nameTweet}>{user.username}</span><br/>
+            <span className='grisUserName'>@{user.email}</span>
           </div>
         </div>
       </div>

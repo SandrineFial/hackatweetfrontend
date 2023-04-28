@@ -30,7 +30,9 @@ function SignUp() {
   };
 
   const handleSignIn = (username, password) => {
-    fetch('https://hackatweet-backend-ac9g.vercel.app/users/signin', {
+    //const BACK_END = "https://hackatweet-backend-ac9g.vercel.app"
+    const BACK_END = "http://localhost:3000"
+    fetch(BACK_END+'/users/signin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
@@ -38,7 +40,7 @@ function SignUp() {
       .then((response) => response.json())
       .then((data) => {
         if (data.result) {
-          dispatch(login({ username, token: data.token }));
+          dispatch(login({ username, email: data.email, token: data.token }));
         }
       });
   };
@@ -56,7 +58,7 @@ function SignUp() {
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
-          type="email"
+          type="text"
           placeholder="Adresse e-mail"
           className={styles.input}
           value={email}
