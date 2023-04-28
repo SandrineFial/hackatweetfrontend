@@ -7,12 +7,11 @@ function SignIn() {
   const dispatch = useDispatch();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
 
   const handleSignIn = () => {
-    
-
-    //const BACK_END = "https://hackatweet-backend-ac9g.vercel.app"
-    const BACK_END = "http://localhost:3000"
+    const BACK_END = "https://hackatweet-backend-ac9g.vercel.app"
+    //const BACK_END = "http://localhost:3000"
     fetch(BACK_END+'/users/signin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -23,6 +22,7 @@ function SignIn() {
         console.log('Data from server:', data);
         console.log('Token from server:', data.token)
         if (data.result) {
+          setEmail(data.email); // Ajoutez cette ligne
           dispatch(login({ username, email: data.email, token: data.token }));
         } else {
           console.log('Error:', data.error); 
