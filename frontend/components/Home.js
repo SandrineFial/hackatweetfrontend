@@ -14,10 +14,12 @@ function Home() {
   //const BACK_END = "https://hackatweet-backend-ac9g.vercel.app"
   const BACK_END = "http://localhost:3000"
   const user = useSelector((state) => state.user.value);
-  console.log('User in home', user)
+  //console.log('User in home', user)
   
   const [listeTweets, setListeTweets] = useState([]);
   const [listeHashtag, setListeHashtag] = useState([]);
+  const [totalCaracteres, setTotalCaracteres] = useState(0);
+  const [newTweet, setNewTweet] = useState('');
 
   const dispatch = useDispatch();
   const [showPopup, setShowPopup] = useState(false);
@@ -30,7 +32,7 @@ function Home() {
     dispatch(logout());
   };
 
-  console.log(user)
+  //console.log(user)
   if (!user.token) {
     return <Login />; // retourner page accueil
   }
@@ -43,10 +45,10 @@ function Home() {
     .then(
       data => {
         if(data) {
-          console.log(data);
+          //console.log(data);
           const listHash = data.hashtags
-          listHash.map( hash => {  
-            trends.push(<Trends name={hash} key = {hash._id}/>)
+          listHash.map( (hash, kle) => {  
+            trends.push(<Trends name={hash} key= {kle}/>)
           } )
           setListeHashtag(trends)
       }
@@ -60,17 +62,40 @@ function Home() {
     .then(
       data => {
         if(data) {
-          console.log(data);
+          //console.log(data);
           const listTwt = data.tweets
-          listTwt.map( twt => {  
-            tweets.push(<Tweet content={twt.content} author={twt.author.username} email={twt.author.email} key = {twt._id} like={twt.likes.length}/>)
+          listTwt.map( (twt, kle) => {  
+            tweets.push(<Tweet content={twt.content} author={twt.author.username} 
+              email={twt.author.email} key={kle} like={twt.likes.length}/>)
           } )
           setListeTweets(tweets)
       }
       }
     ) 
   }, []);
-
+  const tweetNew = (username) => { // ajoute un new Tweet
+    const userNom = username
+    fetch(BACK_END+'/users/'+userNom, {
+      method: 'GET',
+    })
+    .then(response => response.json())
+    .then(data=> { 
+      if(data.result) {
+        const hashtags = [] // recup dans le msg les hashtags
+        fetch(BACK_END+'/tweets', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userId: data.id, content: newTweet, hashtags: hashtags})
+        })
+        .then(response => response.json())  
+        .then(
+          data => {
+            console.log(data)
+            setListeTweets([...listeTweets, data])
+        })
+      }
+    })
+  }
 
   return (
     <div className={styles.container}>
@@ -92,10 +117,12 @@ function Home() {
       <div className={styles.borderLeft}>
         <h2 className={styles.titreNoBold}>Home</h2>
         <div className={styles.addTweet}>
-          <textarea placeholder="What's up?" className={styles.inputTweet}></textarea>
+          <textarea placeholder="What's up?" className={styles.inputTweet} maxLength="280" 
+            onChange={(e) => { setTotalCaracteres(e.target.value.length); setNewTweet(e.target.value); } }>
+          </textarea>
           <p className={styles.alignRight}>
-            <span className={styles.totCaracteres}>0/280</span>
-            <button className={styles.btnTweet}>Tweet</button>
+            <span className={styles.totCaracteres}>{totalCaracteres}/280</span>
+            <button className={styles.btnTweet} onClick={() => tweetNew(user.username) }>Tweet</button>
           </p>
         </div>
         {listeTweets}

@@ -57,7 +57,7 @@ h1 {
 button, input, a {
   cursor: pointer;
 }
-input[type=text], input[type=password] {
+input[type=text], input[type=password], textarea {
   color: white;
 }
 .eggs {
