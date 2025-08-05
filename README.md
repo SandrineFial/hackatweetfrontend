@@ -116,14 +116,6 @@ Configuration personnalisée disponible dans `webpack.config.js`.
 
 L'état utilisateur est géré via Redux dans `reducers/user.js`.
 
-## Contribution
-
-1. Fork le projet
-2. Créer une branche pour votre fonctionnalité (`git checkout -b feature/AmazingFeature`)
-3. Commit vos changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
-
 ## Licence
 
 Ce projet est sous licence MIT.
