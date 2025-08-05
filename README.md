@@ -124,5 +124,6 @@ Ce projet est sous licence MIT.
 
 👨‍💻 Auteur
 Sandrine Fialon & La Capsule (Projet école)
-https://www.fialons-web.fr/
-Linkedin : https://www.linkedin.com/in/fialonsandrine/
+
+- https://www.fialons-web.fr/
+- Linkedin : https://www.linkedin.com/in/fialonsandrine/
